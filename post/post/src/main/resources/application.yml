@@ -1,0 +1,28 @@
+spring:
+  application:
+    name:  POST-SERVICE
+  datasource:
+    url: jdbc:mysql://localhost:3306/postdb
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+
+server:
+  port: 8081  # Set this to the desired client service port
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka  # Ensure Eureka Server URL is correct
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    prefer-ip-address: true
